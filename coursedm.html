@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .course-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .course-box {
+            width: 45%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course-box h2 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #555;
+        }
+
+        .course-box p {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Avilable Courses</h1>
+        <div class="course-container">
+            <!-- Undergraduate -->
+            <div class="course-box" onclick="navigateToPage('courses.html')">
+                <img src="undergra.jpg" alt="Undergraduate">
+                <h2>Undergraduate</h2>
+                <p>Explore a variety of Undergraduate courses to kickstart your journey.</p>
+            </div>
+
+            <!-- Postgraduate -->
+            <div class="course-box" onclick="navigateToPage('postgraduattecourse1.html')">
+                <img src="post graduate.jpg" alt="Postgraduate">
+                <h2>Postgraduate</h2>
+                <p>Discover advanced Postgraduate courses to expand your knowledge.</p>
+            </div>
+        </div>
+    </div>
+    <li><a href="aboutus2.html">  Go Back </a></li>
+    <script>
+        // Function to navigate to the appropriate page
+        function navigateToPage(pageUrl) {
+            window.location.href = pageUrl;
+        }
+    </script>
+</body>
+</html>

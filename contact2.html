@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shri S.H.Kelkar College, Devgad - Contact Page</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header,
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    /* Title Section */
+    .title-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .title-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .title-section p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Contact Info Section */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 40px;
+    }
+
+    .contact-info .info-box {
+      flex: 1 1 300px;
+      background: #fafafa;
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .contact-info .info-box h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .contact-info .info-box p {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    /* Message Form */
+    .message-section {
+      margin-bottom: 40px;
+    }
+    .message-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .message-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .message-form .form-group {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-form .form-group label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .message-form .form-group input,
+    .message-form .form-group textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .message-form .form-group textarea {
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-submit:hover {
+      background: #444;
+    }
+
+    /* Footer / Additional Info */
+    .footer-info {
+      background: #f8f8f8;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+    .footer-info p {
+      margin-bottom: 8px;
+    }
+
+    .award-section {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <body style="background-image: url('.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  
+  
+  <!-- Header (Optional) -->
+  <header>
+    <h1>Shri S.H.Kelkar College, Devgad</h1>
+  </header>
+
+  <div class="container">
+    <!-- Title Section -->
+    <div class="title-section">
+      <h2>GET IN TOUCH</h2>
+      <p>Contact us at Shri S.H.Kelkar College, Devgad</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <!-- Address Box -->
+      <div class="info-box">
+        <h3>Address</h3>
+        <p>Shri S.H.Kelkar College of Arts, Commerce and Science</p>
+        <p>Devgad, Dist. Sindhudurg, Maharashtra 416613</p>
+      </div>
+      <!-- Phone Box -->
+      <div class="info-box">
+        <h3>Phone</h3>
+        <p>02364 - 262340</p>
+        <p>For any emergency or general inquiries</p>
+      </div>
+      <!-- Email Box -->
+      <div class="info-box">
+        <h3>Email</h3>
+        <p><a href="mailto:principal@shkcdevgad.edu.in">principal@shkcdevgad.edu.in</a></p>
+        <p>Feel free to send us an email</p>
+      </div>
+    </div>
+
+    <!-- Message Form Section -->
+    <div class="message-section">
+      <h2>Message Us</h2>
+      <form class="message-form" action="#" method="post">
+        <div class="form-group">
+          <label for="fname">Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Your name..." required />
+        </div>
+        <div class="form-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="femail" placeholder="Your email..." required />
+        </div>
+        <div class="form-group">
+          <label for="fphone">Phone</label>
+          <input type="tel" id="fphone" name="fphone" placeholder="Your phone number..." />
+        </div>
+        <div class="form-group" style="flex: 1 1 100%;">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" name="fmessage" placeholder="Your message..." required></textarea>
+        </div>
+        <div style="flex: 1 1 100%;">
+          <button class="btn-submit" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Info / Additional Section -->
+  <div class="footer-info">
+    <p>Shri S.H.Kelkar College, Devgad</p>
+    <p>Dist. Sindhudurg, Maharashtra 416613</p>
+    <p>Phone: 02364 - 262340 | Email: principal@shkcdevgad.edu.in</p>
+    <div class="award-section">
+    
+    </div>
+  </div>
+
+  <!-- Footer (Optional) -->
+  <footer>
+    <p>&copy; 2025 Shri S.H.Kelkar College, Devgad. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

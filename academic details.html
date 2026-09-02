@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Details Form</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Menu Bar (Horizontal) */
+        nav {
+            width: 100%;
+            background-color: #16171a;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 30px; /* Adds space between items */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700; /* Gold color on hover */
+        }
+
+        /* Centering the form */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px; /* Adjust width as needed */
+            text-align: center;
+            position: relative;
+            margin-top: 30px; /* Distance between menu and form */
+        }
+
+        /* Logo Styling */
+        .logo {
+            max-width: 100px; /* Adjust size as needed */
+            margin-bottom: 15px;
+        }
+
+        /* Form Title */
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Form Inputs */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Buttons (Go Back & Next) */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .go-back {
+            left: -120px; /* Move to the left of the form */
+            color: #2e23c5;
+        }
+
+        .next {
+            right: -90px; /* Move to the right of the form */
+            color: #1515d8;
+        }
+
+        .nav-button:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Horizontal Menu Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus2.html">About Us</a></li>
+            <li><a href="coursedm.html">Courses</a></li>
+            <li><a href="addmissionform.html">Admission</a></li>
+            <li><a href="contact.html">Contact</a></li> 
+        </ul>
+    </nav>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <!-- Go Back Button -->
+        <button class="nav-button go-back" onclick="goBack()">&#60; Go Back</button>
+
+        <!-- College Logo -->
+        <img src="OIP.jpg" alt="Devgad College Logo" class="logo">
+
+        <h2>Academic Details</h2>
+        <form>
+            <div class="form-group">
+                <label for="course">Course Applying For</label>
+                <select id="course">
+                    <option value="">--Select Course--</option>
+                    <option value="bsc">Bachelor of Science (B.Sc.)</option>
+                    <option value="bcom">Bachelor of Commerce (B.Com.)</option>
+                    <option value="ba">Bachelor of Arts (B.A.)</option>
+                    <!-- Add more courses as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="previousSchool">Previous School/College</label>
+                <input type="text" id="previousSchool" placeholder="Enter name of your previous institution">
+            </div>
+
+            <div class="form-group">
+                <label for="marks">Percentage/CGPA</label>
+                <input type="text" id="marks" placeholder="Enter your marks/CGPA">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <!-- Next Button -->
+        <button class="nav-button next" onclick="goNext()">Next &#62;</button>
+    </div>
+
+    <script>
+        function goBack() {
+            //window.history.back(); // Navigates to the previous page
+            window.location.href = 'personaldetail2.html';
+        }
+
+        function goNext() {
+            window.location.href = "addmorecourse.html"; // Replace with your actual next page URL
+        }
+    </script>
+
+</body>
+</html>

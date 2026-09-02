@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course & Fee Management - Devgad College</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+
+        .admin-container {
+            display: flex;
+            width: 100%;
+        }
+
+        nav {
+            width: 250px;
+            background: #333;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: #575757;
+        }
+
+        .content {
+            margin-left: 270px;
+            width: calc(100% - 270px);
+            padding: 20px;
+        }
+
+        header {
+            background: #004080;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 5px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #004080;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-edit {
+            background-color: #ffc107;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin-right: 10px;
+            width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="admin-container">
+    <nav>
+        <ul>
+            <li><a href="usermanagement.html">User Management</a></li>
+            <li><a href="applicationmanagement.html">Application Management</a></li>
+            <li><a href="coursesandfees.html">Course & Fee Management</a></li>
+            <li><a href="fees.html">Fee Management</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="security.html">Security & Backup</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <header>
+            <h1>Course & Fee Management</h1>
+        </header>
+
+        <div class="container">
+            <h2>Manage Courses & Fees</h2>
+
+            <!-- Add/Search Course Form -->
+            <div class="form-container">
+                <input type="text" id="courseName" placeholder="Enter course name">
+                <input type="number" id="courseFee" placeholder="Enter course fee">
+                <button onclick="addCourse()">Add Course</button>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search courses" onkeyup="searchCourse()">
+            </div>
+
+            <!-- Course Table -->
+            <table id="courseTable">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Course Fee</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Courses will be added dynamically here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    let courses = [];
+    
+    // Function to add course
+    function addCourse() {
+        const courseName = document.getElementById('courseName').value;
+        const courseFee = document.getElementById('courseFee').value;
+
+        if (courseName && courseFee) {
+            const course = { courseName, courseFee };
+            courses.push(course);
+            displayCourses();
+            clearForm();
+        } else {
+            alert("Please fill all fields.");
+        }
+    }
+
+    // Function to display courses
+    function displayCourses() {
+        const tableBody = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = "";
+        
+        courses.forEach((course, index) => {
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = course.courseName;
+            row.insertCell(1).textContent = `$${course.courseFee}`;
+            
+            const actionsCell = row.insertCell(2);
+            actionsCell.innerHTML = `
+                <button class="btn btn-edit" onclick="editCourse(${index})">Edit</button>
+                <button class="btn btn-danger" onclick="deleteCourse(${index})">Delete</button>
+            `;
+        });
+    }
+
+    // Function to delete course
+    function deleteCourse(index) {
+        courses.splice(index, 1);
+        displayCourses();
+    }
+
+    // Function to edit course
+    function editCourse(index) {
+        const courseName = prompt("Enter new course name:", courses[index].courseName);
+        const courseFee = prompt("Enter new course fee:", courses[index].courseFee);
+
+        if (courseName && courseFee) {
+            courses[index] = { courseName, courseFee };
+            displayCourses();
+        }
+    }
+
+    // Function to clear form fields
+    function clearForm() {
+        document.getElementById('courseName').value = "";
+        document.getElementById('courseFee').value = "";
+    }
+
+    // Function to search courses
+    function searchCourse() {
+        const searchQuery = document.getElementById('search').value.toLowerCase();
+        const filteredCourses = courses.filter(course => 
+            course.courseName.toLowerCase().includes(searchQuery)
+        );
+        
+        const tableBody = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = "";
+        
+        filteredCourses.forEach((course, index) => {
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = course.courseName;
+            row.insertCell(1).textContent = `$${course.courseFee}`;
+            
+            const actionsCell = row.insertCell(2);
+            actionsCell.innerHTML = `
+                <button class="btn btn-edit" onclick="editCourse(${index})">Edit</button>
+                <button class="btn btn-danger" onclick="deleteCourse(${index})">Delete</button>
+            `;
+        });
+    }
+</script>
+
+</body>
+</html>
